@@ -14,20 +14,23 @@ const navigation = [
 export interface Marker {
     index: string,
     title: string,
-    left: string,
-    top: string,
+    left: number,
+    top: number,
     description?:string,
     image?:StaticImageData
 }
 
+export type Size = {w:number, h:number}
+const mapSize:Size = {w:980, h:915}
+
 const markers:Marker[] = [
-    {index: "1", title: "Ruine Fort Mazar", left: "190px", top: "415px", description:"Il a été ravagé par une attaque de cyclope", image:mapFort},
-    {index: "2", title: "Ossements de Bakandi", left: "148px", top: "410px", description:"Il faut qu'on les enterre dans un lieu sanctifié"},
-    {index: "3", title: "Maussolée de Baltus Trune", left: "95px", top: "455px", description:"Attention à la curse si on essaye de forcer l'entrée !!!"},
-    {index: "4", title: "Ancien camp de bucheron", left: "180px", top: "615px", description:"Il est occupé par des garous qui contrôlent globalement toute la forêt. On a passé un pacte de non aggression avec eux."},
-    {index: "5", title: "Temple de Delwen", left: "70px", top: "660px"},
-    {index: "6", title: "Grotte aux harpies", left: "110px", top: "430px"},
-    {index: "7", title: "Poulpe géant", left: "300px", top: "500px", description:"Il y un poulpe géant dans la baie. On veut l'apprivoiser pour en faire le gardien de la baie."}
+    {index: "1", title: "Ruine Fort Mazar", left: 235, top: 515, description:"Il a été ravagé par une attaque de cyclope", image:mapFort},
+    {index: "2", title: "Ossements de Bakandi", left: 190, top: 510, description:"Il faut qu'on les enterre dans un lieu sanctifié"},
+    {index: "3", title: "Maussolée de Baltus Trune", left: 120, top: 555, description:"Attention à la curse si on essaye de forcer l'entrée !!!"},
+    {index: "4", title: "Ancien camp de bucheron", left: 220, top: 745, description:"Il est occupé par des garous qui contrôlent globalement toute la forêt. On a passé un pacte de non aggression avec eux."},
+    {index: "5", title: "Temple de Delwen", left: 85, top: 810},
+    {index: "6", title: "Grotte aux harpies", left: 135, top: 525},
+    {index: "7", title: "Poulpe géant", left: 350, top: 600, description:"Il y un poulpe géant dans la baie. On veut l'apprivoiser pour en faire le gardien de la baie."}
 ]
 
 export default function Page() {
@@ -77,9 +80,9 @@ export default function Page() {
                                     <div className="overflow-hidden rounded-lg bg-white shadow">
                                         <div className="p-6 flex justify-center">
                                             <div className="relative">
-                                                <Image src={mapSumita} alt={""} width={800}/>
+                                                <Image src={mapSumita} alt={""} width={980} height={915}/>
                                                 {
-                                                    markers.map((marker) => <PositionButton key={marker.index} marker={marker} onClick={setSelectedMarker}/>)
+                                                    markers.map((marker) => <PositionButton key={marker.index} marker={marker} mapSize={mapSize} onClick={setSelectedMarker}/>)
                                                 }
                                             </div>
                                         </div>
