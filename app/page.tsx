@@ -71,14 +71,14 @@ export default function Page() {
                     </div>
                 </header>
                 <main className="-mt-24 pb-8">
-                    <div className="px-12">
+                    <div className="px-1 md:px-4 lg:px-12">
                         {/* Main 3 column grid */}
                         <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8">
                             {/* Left column */}
                             <div className="grid grid-cols-1 gap-4 lg:col-span-2">
                                 <section aria-labelledby="section-1-title">
-                                    <div className="overflow-hidden rounded-lg bg-white shadow">
-                                        <div className="p-6 flex justify-center">
+                                    <div className="overflow-hidden rounded-lg bg-white shadow mt-1">
+                                        <div className="md:p-3 lg:p-6 flex justify-center">
                                             <div className="relative">
                                                 <Image src={mapSumita} alt={""} width={980} height={915}/>
                                                 {
